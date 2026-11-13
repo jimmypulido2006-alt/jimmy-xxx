@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Web</title>
+  <style>
+    :root {
+      --primario: #4f46e5;
+      --primario-oscuro: #3730a3;
+      --fondo: #f8fafc;
+      --texto: #1e293b;
+      --gris: #64748b;
+      --blanco: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Encabezado */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--blanco);
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+    nav {
+      max-width: 1100px; margin: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 24px;
+    }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--primario); }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav ul a { color: var(--gris); font-weight: 500; transition: color .2s; }
+    nav ul a:hover { color: var(--primario); }
+
+    /* Portada */
+    .hero {
+      background: linear-gradient(135deg, var(--primario), #7c3aed);
+      color: var(--blanco);
+      text-align: center;
+      padding: 110px 24px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 16px; }
+    .hero p { max-width: 600px; margin: 0 auto 32px; font-size: 1.15rem; opacity: .92; }
+    .boton {
+      display: inline-block;
+      background: var(--blanco); color: var(--primario);
+      padding: 14px 32px; border-radius: 999px;
+      font-weight: 600; transition: transform .2s, box-shadow .2s;
+    }
+    .boton:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+
+    /* Secciones */
+    section { max-width: 1100px; margin: auto; padding: 80px 24px; }
+    section h2 { text-align: center; font-size: 2rem; margin-bottom: 12px; }
+    .subtitulo { text-align: center; color: var(--gris); margin-bottom: 48px; }
+
+    /* Tarjetas */
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .tarjeta {
+      background: var(--blanco);
+      padding: 32px 24px; border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.06);
+      transition: transform .25s;
+    }
+    .tarjeta:hover { transform: translateY(-6px); }
+    .icono { font-size: 2.4rem; margin-bottom: 12px; }
+    .tarjeta h3 { margin-bottom: 8px; }
+    .tarjeta p { color: var(--gris); }
+
+    /* Acerca de */
+    .acerca { background: var(--blanco); max-width: none; }
+    .acerca .contenido { max-width: 800px; margin: auto; text-align: center; color: var(--gris); font-size: 1.1rem; }
+
+    /* Formulario */
+    form {
+      max-width: 560px; margin: auto;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    input, textarea {
+      padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 10px;
+      font: inherit; background: var(--blanco);
+    }
+    input:focus, textarea:focus { outline: 2px solid var(--primario); border-color: transparent; }
+    textarea { min-height: 130px; resize: vertical; }
+    button {
+      background: var(--primario); color: var(--blanco);
+      border: none; padding: 14px; border-radius: 10px;
+      font: inherit; font-weight: 600; cursor: pointer; transition: background .2s;
+    }
+    button:hover { background: var(--primario-oscuro); }
+    #mensaje-ok { text-align: center; color: #16a34a; font-weight: 600; min-height: 24px; }
+
+    /* Pie de página */
+    footer { background: var(--texto); color: #cbd5e1; text-align: center; padding: 28px 24px; }
+
+    @media (max-width: 640px) {
+      nav { flex-direction: column; gap: 12px; }
+      nav ul { gap: 18px; }
+      .hero { padding: 80px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#inicio" class="logo">MiSitio</a>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#acerca">Acerca de</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="inicio">
+      <h1>Bienvenido a tu nueva página web</h1>
+      <p>Un sitio moderno, rápido y adaptable a cualquier pantalla, creado 100% con HTML.</p>
+      <a href="#contacto" class="boton">Contáctanos</a>
+    </div>
+
+    <section id="servicios">
+      <h2>Nuestros servicios</h2>
+      <p class="subtitulo">Lo que podemos hacer por ti</p>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <div class="icono">🎨</div>
+          <h3>Diseño</h3>
+          <p>Interfaces atractivas y fáciles de usar que reflejan tu identidad.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="icono">⚡</div>
+          <h3>Rendimiento</h3>
+          <p>Páginas ligeras que cargan rápido en cualquier dispositivo.</p>
+        </div>
+        <div class="tarjeta">
+          <div class="icono">📱</div>
+          <h3>Adaptable</h3>
+          <p>Se ve perfecta en computador, tablet y celular.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="acerca" id="acerca">
+      <div class="contenido">
+        <h2>Acerca de nosotros</h2>
+        <p class="subtitulo">Quiénes somos</p>
+        <p>Somos un equipo apasionado por crear experiencias digitales sencillas y efectivas. Este texto es de ejemplo: reemplázalo con la historia de tu proyecto, empresa o negocio.</p>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="subtitulo">Escríbenos y te responderemos pronto</p>
+      <form id="formulario">
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <textarea placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+        <p id="mensaje-ok"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="anio"></span> MiSitio. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("anio").textContent = new Date().getFullYear();
+
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("mensaje-ok").textContent = "¡Gracias! Tu mensaje fue enviado.";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
